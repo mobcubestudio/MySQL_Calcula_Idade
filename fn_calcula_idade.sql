@@ -1,0 +1,14 @@
+DELIMITER $$
+
+DROP FUNCTION IF EXISTS fn_calcula_idade$$
+
+CREATE FUNCTION fn_calcula_idade(nascimento DATE)
+    RETURNS INT
+    DETERMINISTIC
+BEGIN
+
+    RETURN TIMESTAMPDIFF(YEAR, nascimento, NOW());
+
+END$$
+
+DELIMITER ;
